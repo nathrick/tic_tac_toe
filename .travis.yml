@@ -1,0 +1,17 @@
+language: cpp
+compiler: gcc
+dist: trusty
+
+before_install:
+ - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+ - sudo apt-get update -qq
+
+install: 
+ - sudo apt-get install -qq g++-5
+ - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 90
+ - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+ - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
+
+script: 
+ - qmake -qt=qt5
+ - make
