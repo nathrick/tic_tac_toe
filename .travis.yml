@@ -13,5 +13,6 @@ install:
  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 
 script: 
- - qmake -qt=qt5
+ - qmake -project
+ - qmake tic_tac_toe.pro
  - make
